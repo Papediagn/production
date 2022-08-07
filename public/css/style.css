@@ -1,0 +1,4 @@
+.is-invalid{
+    border: solid red 2px;
+    border-radius: 6ps;
+}
