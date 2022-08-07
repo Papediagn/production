@@ -21,13 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return view('authentifications/login');
 });
-Route::get('/', function () {
-    return view('accueil');
-});
+// Route::get('/', []);
+
 Route::get('/facture', function () {
     return view('facture');
 });
-Route::resource('/accueil', AdminController::class);
+Route::resource('/', AdminController::class);
 Route::resource('operateurs', OperateurController::class);
 Route::resource('machines', MachineController::class);
 Route::resource('blocs', BlocController::class);

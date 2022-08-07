@@ -18,15 +18,8 @@ class AdminController extends Controller
     {
         //
         $count_bloc=Bloc::count();
-        // $count_tranche = DB::select('select * from tranches where quantite = ?');
-        $count_tranche = DB::table('tranches')->select('quantite', 'quantite as quantite') ->get();
-        // $count_tranche = DB::table('tranches')
-        //      ->select(DB::raw('count(*)  quantite'))
-        //      ->where('quantite')
-        //      ->groupBy('quantite')
-        //      ->get();
-        // $count_tranche=Tranche::count()->where('quantite');
-        return view('accueil',compact(['count_bloc','count_tranche']));
+        $qte=DB::table('tranches')->get()->sum('quantite');
+        return view('accueil',compact(['count_bloc','qte']));
 
 
 

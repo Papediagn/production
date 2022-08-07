@@ -262,7 +262,6 @@
                                             {{-- <th scope="col">#</th> --}}
                                             <th width="50" scope="col">Désign</th>
                                             <th width="30" scope="col">N°B</th>
-                                            <th width="20" scope="col">Qté</th>
                                             <th width="10" scope="col">Lo</th>
                                             <th width="10" scope="col">La</th>
                                             <th width="10" scope="col">H</th>
@@ -273,6 +272,7 @@
                                             <th width="10" scope="col">La</th>
                                             <th width="10" scope="col">Ep</th>
                                             <th width="10" scope="col">M²</th>
+
                                             {{-- <th width="30" scope="col">Ob</th> --}}
                                             {{-- <th scope="col" class="noprint">Actions</th> --}}
                                         </tr>
@@ -294,7 +294,6 @@
                                                 {{-- <th scope="row">{{ $tranches->id }}</th> --}}
                                                 <td>{{ $bloc->bloc->designation }}</td>
                                                 <td>{{ $bloc->bloc->numero }}</td>
-                                                <td>{{ $bloc->bloc->qualite }}</td>
                                                 <td>{{ $bloc->bloc->longueur }}</td>
                                                 <td>{{ $bloc->bloc->largeur }}</td>
                                                 <td>{{ $bloc->bloc->hauteur }}</td>
@@ -308,14 +307,19 @@
                                                 {{-- <td>{{ $bloc->observation }}</td> --}}
                                             </tr>
                                         @endforeach
+                                        <tfoot>
+                                            <th width="10" colspan="10"></th>
+                                            <th width="10">Machine</th>
+                                            <th width="10">{{ $bloc->bloc->machine->libelle }}</th>
+                                        </tfoot>
                                     <tfoot>
-                                        <th width="10" colspan="11"></th>
+                                        <th width="10" colspan="10"></th>
                                         <th width="10">Total</th>
                                         <th width="10"><?= $total ?>m²</th><br>
 
                                     </tfoot>
                                     <tfoot>
-                                        <th width="10" colspan="11"></th>
+                                        <th width="10" colspan="10"></th>
                                         <th width="10">Rd</th>
                                         <th width="10"><?= $rd ?>m²/t</th>
                                     </tfoot>

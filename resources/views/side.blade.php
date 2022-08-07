@@ -51,4 +51,5 @@
 
        </ul>
     </div>
- </nav>
+    <button class=" btn btn-warning">Deconnecter</button>
+</nav>

@@ -29,7 +29,7 @@
                                 <th width="50" scope="col">Larg</th>
                                 <th width="50" scope="col">Ep</th>
                                 <th width="50" scope="col">M²</th>
-                                <th width="50" scope="col">Obs</th>
+                                <th width="50" scope="col">Machine</th>
                                 <th width="50" scope="col" class="noprint">Actions</th>
                             </tr>
                         </thead>
@@ -56,8 +56,14 @@
                                     <td>{{ $t->larg }}</td>
                                     <td>{{ $t->epaisseur }}</td>
                                     <td>{{ $x }}</td>
-                                    <td>{{ $t->observation }}</td>
+                                    <td>{{ $t->bloc->machine->libelle }}</td>
                                     <td class="btn-group">
+                                        <a
+                                            href="{{ route('tranches', $t->bloc->id) }}" class="btn btn-primary"><i
+                                                class="fa fa-print" aria-hidden="true"></i></a>
+                                                <a onclick="return confirm('Voulez-vous modifier?')"
+                                                    href="{{ route('tranches.edit', $t) }}" class="btn btn-success"><i
+                                                        class="fa fa-edit" aria-hidden="true"></i></a>
                                         <form style="display: inline" action="{{ route('tranches.destroy', $t) }}"
                                             onclick="return confirm('Voulez-vous supprimer?')" method="POST">
                                             @csrf
@@ -65,12 +71,6 @@
                                             <button class="btn btn-danger"> <i class="fa fa-trash"
                                                     aria-hidden="true"></i></button>
                                         </form>
-                                        <a onclick="return confirm('Voulez-vous modifier?')"
-                                            href="{{ route('tranches.edit', $t) }}" class="btn btn-success"><i
-                                                class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a
-                                            href="{{ route('tranches', $t->bloc->id) }}" class="btn btn-primary"><i
-                                                class="fa fa-print" aria-hidden="true"></i></a>
                                     </td>
 
                                 </tr>

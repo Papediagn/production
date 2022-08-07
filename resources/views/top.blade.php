@@ -3,7 +3,7 @@
        <div class="full">
           <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
           <div class="logo_section">
-             <a href="index.html"><img class="img-responsive" src="{{asset('images/logo/logoo.png')}}" alt="#" /></a>
+             <a href="#"><img class="img-responsive" src="{{asset('images/logo/logoo.png')}}" alt="#" /></a>
           </div>
           <div class="right_topbar">
              <div class="icon_info">
@@ -16,9 +16,9 @@
                    <li>
                       <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{asset('images/logo/logoo.png')}}" alt="#" /><span class="name_user">John David</span></a>
                       <div class="dropdown-menu">
-                         <a class="dropdown-item" href="profile.html">My Profile</a>
+                         {{-- <a class="dropdown-item" href="profile.html">My Profile</a>
                          <a class="dropdown-item" href="settings.html">Settings</a>
-                         <a class="dropdown-item" href="help.html">Help</a>
+                         <a class="dropdown-item" href="help.html">Help</a> --}}
                          <a class="dropdown-item" href="#"><span>Deconnecter</span> <i class="fa fa-sign-out"></i></a>
                       </div>
                    </li>
