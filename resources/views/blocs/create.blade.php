@@ -1,6 +1,6 @@
 @extends('template')
 @section('titre')
-    Ajouter un opérateur
+    Ajouter un bloc
 @endsection
 @section('main')
     <div class="container col-md-10 mx-auto">

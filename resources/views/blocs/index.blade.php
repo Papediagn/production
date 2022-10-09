@@ -22,7 +22,7 @@
                                 <th scope="col">Obs</th>
                                 <th   scope="col">Date d'Entrée</th>
                                 <th scope="col">Heure d'entrée</th>
-                                <th scope="col">Date de sortie</th>
+                                <th   scope="col">Date sortie</th>
                                 <th scope="col">Heure de sortie</th>
                                 <th scope="col">Machine</th>
                                 <th scope="col">Actions</th>

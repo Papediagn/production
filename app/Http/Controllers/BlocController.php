@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class BlocController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -64,8 +68,8 @@ class BlocController extends Controller
      */
     public function show($id)
     {
-        $blocs= Bloc::find($id);
-        return view('blocs/show',compact('blocs'));
+        // $blocs= Bloc::find($id);
+        // return view('blocs/show',compact('blocs'));
     }
 
     /**

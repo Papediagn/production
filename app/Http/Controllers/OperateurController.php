@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class OperateurController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +31,7 @@ class OperateurController extends Controller
     {
            //
            return view('operateurs/create');
-   
+
 
     }
 

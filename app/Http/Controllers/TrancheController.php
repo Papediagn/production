@@ -11,6 +11,10 @@ use PDF;
 
 class TrancheController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -125,6 +129,6 @@ class TrancheController extends Controller
     //  dd($blocs);
         // $pdf = PDF::loadView('facture',compact('tranches'));
         // return $pdf->stream('tranches.pdf');
-       return view('tranches/facture',compact('blocs'));
+       return view('facture',compact('blocs'));
     }
 }

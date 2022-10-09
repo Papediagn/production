@@ -10,8 +10,8 @@
           <div class="user_profle_side">
              <div class="user_img"><img class="img-responsive" src="{{asset('images/logo/logoo.png')}}" alt="#" /></div>
              <div class="user_info">
-                <h6>John David</h6>
-                <p><span class="online_animation"></span> Online</p>
+                <h6>{{Auth::user()->name}}</h6>
+                <p><span class="online_animation"></span> En ligne</p>
              </div>
           </div>
        </div>
@@ -46,10 +46,20 @@
                <li>
                   <a href="{{route('machines.index')}}"> <span>Liste des machines</span></a>
                </li>
+               <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">
+                <span>Deconnecter</span>
+                <i class="fa fa-sign-out"></i></a> </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>             </li>
              </ul>
           </li>
 
        </ul>
     </div>
-    <button class=" btn btn-warning">Deconnecter</button>
+
 </nav>

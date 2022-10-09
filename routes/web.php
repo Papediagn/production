@@ -23,23 +23,27 @@ Route::get('/login', function () {
 });
 // Route::get('/', []);
 
-Route::get('/facture', function () {
-    return view('facture');
-});
-Route::resource('/', AdminController::class);
-Route::resource('operateurs', OperateurController::class);
-Route::resource('machines', MachineController::class);
-Route::resource('blocs', BlocController::class);
-Route::resource('tranches', TrancheController::class);
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'prevent-back-history'],function(){
+	Auth::routes();
+	Route::get('/home', 'TrancheController@index');
+    Route::get('/home', [App\Http\Controllers\TrancheController::class, 'accueil'])->name('home');
+
+    Route::get('/facture', function () {
+        return view('facture');
+    });
+    Route::resource('/', AdminController::class)->middleware('auth');
+    Route::resource('operateurs', OperateurController::class);
+    Route::resource('machines', MachineController::class);
+    Route::resource('blocs', BlocController::class);
+    Route::resource('tranches', TrancheController::class);
+
 Route::get('/get-all-tranches',[TrancheController::class,'getAlltranche']);
 Route::get('/download-pdf',[TrancheController::class,'downloadPDF']);
 Route::get('tranches/facture/{id}',[TrancheController::class,'facture'])->name('tranches');
+});
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

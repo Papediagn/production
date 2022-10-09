@@ -14,19 +14,18 @@
 
                         <thead class="bg-none bgc-default-tp1">
                             <tr>
-
                                 {{-- <th scope="col">#</th> --}}
                                 <th width="100" scope="col">Désignation</th>
                                 <th width="50" scope="col">N°Bloc</th>
                                 <th width="50" scope="col">Qualité</th>
-                                <th width="50" scope="col">Long</th>
-                                <th width="50" scope="col">Larg</th>
-                                <th width="50" scope="col">Haut</th>
+                                <th width="50" scope="col">Lo</th>
+                                <th width="50" scope="col">La</th>
+                                <th width="50" scope="col">H</th>
                                 <th width="50" scope="col">M3</th>
                                 <th width="50" scope="col">Tonne</th>
                                 <th width="50" scope="col">Nbr</th>
-                                <th width="50" scope="col">Long</th>
-                                <th width="50" scope="col">Larg</th>
+                                <th width="50" scope="col">Lo</th>
+                                <th width="50" scope="col">La</th>
                                 <th width="50" scope="col">Ep</th>
                                 <th width="50" scope="col">M²</th>
                                 <th width="50" scope="col">Machine</th>
@@ -76,11 +75,11 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                        <tfoot>
-                            <tr>
+                        {{-- <tfoot>
+                            {{-- <tr>
                                 <!-- <th scope="col">#</th> -->
                                 {{-- <th scope="col"></th> --}}
-                                <th scope="col"></th>
+                                {{-- <th scope="col"></th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
@@ -96,8 +95,8 @@
                                 <th scope="col"></th>
                                 <th scope="col"></th>
 
-                            </tr>
-                        </tfoot>
+                            </tr> --}}
+                        {{-- </tfoot> --}} -
                     </table>
                 </div>
             </div>
@@ -114,41 +113,44 @@
                 },
                 dom: 'Bfrtip',
                 buttons: [
+
                     'print', 'csv', 'excel', 'pdf', 'copy'
                 ],
 
-                footerCallback: function(row, data, start, end, display) {
-                    var api = this.api();
 
-                    // Remove the formatting to get integer data for summation
-                    var intVal = function(i) {
-                        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i ===
-                            'number' ? i : 0;
-                    };
+                // footerCallback: function(row, data, start, end, display) {
+                //     var api = this.api();
 
-                    // Total over all pages
-                    total = api
-                        .column(12)
-                        .data()
-                        .reduce(function(a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
+                //     // Remove the formatting to get integer data for summation
+                //     var intVal = function(i) {
+                //         return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i ===
+                //             'number' ? i : 0;
+                //     };
 
-                    // Total over this page
-                    pageTotal = api
-                        .column(12, {
-                            page: 'current'
-                        })
-                        .data()
-                        .reduce(function(a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
+                //     // Total over all pages
+                //     total = api
+                //         .column(12)
+                //         .data()
+                //         .reduce(function(a, b) {
+                //             return intVal(a) + intVal(b);
+                //         }, 0);
 
-                    // Update footer
-                    $(api.column(12).footer()).html(pageTotal + 'M²', 0);
-                },
+                //     // Total over this page
+                //     pageTotal = api
+                //         .column(12, {
+                //             page: 'current'
+                //         })
+                //         .data()
+                //         .reduce(function(a, b) {
+                //             return intVal(a) + intVal(b);
+                //         }, 0);
+
+                //     // Update footer
+                //     $(api.column(12).footer()).html(pageTotal + 'M²', 0);
+                // },
 
             });
         });
     </script>
+
 @endpush
